@@ -20,6 +20,8 @@ export class AppComponent implements OnInit {
                 private route: ActivatedRoute,
                 private router: Router) {}
 
+    // Parameter
+    type: string | null = '';
     key: string | null = '';
 
     // Index
@@ -27,29 +29,28 @@ export class AppComponent implements OnInit {
     indexData: Element[] = [];
 
     // Document
-    document = `
-    # Welcome to My App
-    
-    This is the first page :)
+    document = "";
 
-    You can write your *content* here.
-  `;
-
-    getKey(): void {
+    getParam(): void {
         this.route.queryParamMap.subscribe(paramMap => {
+            this.type = paramMap.get('type');
             this.key = paramMap.get('key');
+
+            if (this.type !== null && this.key !== null) {
+                this.http.get(this.type + '/' + this.key + '.md', { responseType: 'text' })
+                    .subscribe(data => { this.document = data; });
+            }
         });
     }
 
-    resetKey(): void {
+    resetParam(): void {
         this.router.navigate(['/']);
     }
 
     ngOnInit(): void {
-        this.getKey();
+        this.getParam();
 
         this.http.get('index.json').subscribe(data => {
-            console.log(data);
             this.indexData = JSON.parse(JSON.stringify(data)) as Element[];
         });
     }

@@ -6,28 +6,28 @@
         <ng-container matColumnDef="lecture">
             <th mat-header-cell *matHeaderCellDef>课程</th>
             <td mat-cell *matCellDef="let element">
-                <a href="?key={{element.lecture}}">{{element.lecture}}</a>
+                <a href="?type=lecture&key={{element.lecture}}">{{element.lecture}}</a>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="book">
             <th mat-header-cell *matHeaderCellDef>教材</th>
             <td mat-cell *matCellDef="let element">
-                <a href="?key={{element.book}}">{{element.book}}</a>
+                <a href="?type=book&key={{element.book}}">{{element.book}}</a>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="lab">
             <th mat-header-cell *matHeaderCellDef>实验</th>
             <td mat-cell *matCellDef="let element">
-                <a href="?key={{element.lab}}">{{element.lab}}</a>
+                <a href="?type=lab&key={{element.lab}}">{{element.lab}}</a>
             </td>
         </ng-container>
 
         <ng-container matColumnDef="work">
             <th mat-header-cell *matHeaderCellDef>作业</th>
             <td mat-cell *matCellDef="let element">
-                <a href="?key={{element.work}}">{{element.work}}</a>
+                <a href="?type=work&key={{element.work}}">{{element.work}}</a>
             </td>
         </ng-container>
 
@@ -37,7 +37,7 @@
 </ng-container>
 
 <ng-container *ngIf="this.key != null">
-    <button mat-stroked-button (click)="resetKey()">返回</button>
+    <button mat-stroked-button (click)="resetParam()">返回</button>
 
     <p>doc {{key}} works!</p>
 
