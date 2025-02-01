@@ -1,0 +1,1 @@
+:root{--m3-background: #FEF7FF;--m3-primary: #6750A4;--m3-container: #EADDFF;--m3-highlight: #E7E0EC}body{padding:1rem 10rem 1em;font-family:Roboto,Helvetica Neue,sans-serif;background-color:var(--m3-background)}h1{color:var(--m3-primary)}:root{--mat-table-background-color: var(--m3-container)}tr:hover{background-color:var(--m3-highlight)}
