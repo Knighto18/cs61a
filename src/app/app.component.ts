@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { NgIf } from "@angular/common";
 import { HttpClient } from "@angular/common/http";
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatTableModule } from '@angular/material/table';
+import { MarkdownModule } from 'ngx-markdown';
 
 export interface Element {
     lecture: string;
@@ -11,25 +16,25 @@ export interface Element {
 
 @Component({
     selector: 'app-root',
-    standalone: false,
-    templateUrl: './app.component.html'
+    templateUrl: './app.component.html',
+    imports: [ MatButtonModule, MatTableModule, MarkdownModule, NgIf ]
 })
 export class AppComponent implements OnInit {
 
     constructor(private http: HttpClient,
                 private route: ActivatedRoute,
-                private router: Router) {}
+                private router: Router) { }
 
     // Parameter
     type: string | null = '';
     key: string | null = '';
 
     // Index
-    indexColumn: string[] = ['lecture', 'book', 'lab', 'work'];
-    indexData: Element[] = [];
+    indexColumn: string[] = [ 'lecture', 'book', 'lab', 'work' ];
+    indexData: Element[] = [ ];
 
     // Document
-    document = "";
+    document = '';
 
     getParam(): void {
         this.route.queryParamMap.subscribe(paramMap => {
