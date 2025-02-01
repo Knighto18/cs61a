@@ -39,9 +39,7 @@
 <ng-container *ngIf="this.key != null">
     <button mat-stroked-button (click)="resetParam()">返回</button>
 
-    <p>doc {{key}} works!</p>
-
-    <markdown [data]="document"></markdown>
+    <markdown katex mermaid [mermaidOptions]="mermaidOptions" [data]="document"></markdown>
 </ng-container>
 
 <p>最后更新：2025 年 2 月 1 日</p>

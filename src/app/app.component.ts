@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MermaidAPI } from 'ngx-markdown';
 
 export interface Element {
     lecture: string;
@@ -24,6 +24,11 @@ export class AppComponent implements OnInit {
     constructor(private http: HttpClient,
                 private route: ActivatedRoute,
                 private router: Router) { }
+
+    // Style
+    public mermaidOptions: MermaidAPI.MermaidConfig = {
+        fontFamily: 'monospace',
+    }
 
     // Parameter
     type: string | null = '';
