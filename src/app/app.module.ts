@@ -1,4 +1,4 @@
-import { provideHttpClient} from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 import { provideZoneChangeDetection, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -11,14 +11,10 @@ import { MarkdownModule } from 'ngx-markdown';
 
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
-import { DocComponent } from "./doc/doc.component";
-import { IndexComponent } from "./index/index.component";
 
 @NgModule({
     declarations: [
         AppComponent,
-        DocComponent,
-        IndexComponent,
     ],
     imports: [
         BrowserModule,
