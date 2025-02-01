@@ -1,12 +1,30 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+
+export interface Element {
+    lecture: string;
+    book: string;
+    lab: string;
+    work: string;
+}
 
 @Component({
-  selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    standalone: false,
+    templateUrl: './app.component.html'
 })
-export class AppComponent {
-  title = 'cs61a';
+export class AppComponent implements OnInit {
+
+    constructor(private http: HttpClient) { }
+
+    column: string[] = ['lecture', 'book', 'lab', 'work'];
+
+    data: Element[] = [];
+
+    ngOnInit(): void {
+        this.http.get('index.json').subscribe(data => {
+            console.log(data);
+            this.data = JSON.parse(JSON.stringify(data)) as Element[];
+        });
+    }
 }
