@@ -11,6 +11,12 @@ export class DocComponent implements OnInit {
 
   key: string = '';
 
+  markdownContent = `
+    # Welcome to My App
+
+    You can write your *content* here.
+  `;
+
   ngOnInit(): void {
     this.key = this.route.snapshot.params['key'];
   }

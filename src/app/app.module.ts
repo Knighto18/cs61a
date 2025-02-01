@@ -7,6 +7,8 @@ import { provideRouter, RouterLink, RouterOutlet } from "@angular/router";
 import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 
+import { MarkdownModule } from 'ngx-markdown';
+
 import { routes } from './app.routes';
 import { AppComponent } from './app.component';
 import { DocComponent } from "./doc/doc.component";
@@ -20,6 +22,7 @@ import { IndexComponent } from "./index/index.component";
     ],
     imports: [
         BrowserModule,
+        MarkdownModule.forRoot(),
         MatButtonModule,
         MatTableModule,
         RouterOutlet,
